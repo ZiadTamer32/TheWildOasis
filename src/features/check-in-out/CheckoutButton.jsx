@@ -1,6 +1,6 @@
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
-import useCheckOut from "../bookings/useCheckOut ";
+import { useCheckOut } from "../bookings/useCheckOut";
 
 function CheckoutButton({ bookingId }) {
   const { checkOut, isCheckOut } = useCheckOut();

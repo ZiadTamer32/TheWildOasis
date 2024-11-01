@@ -10,7 +10,7 @@ import ButtonText from "../../ui/ButtonText";
 import Spinner from "../../ui/Spinner";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useBooking from "./useBooking";
-import useCheckOut from "./useCheckout ";
+import { useCheckOut } from "./useCheckOut";
 import useDelete from "./useDelete";
 import Modal from "../../ui/Modal";
 
