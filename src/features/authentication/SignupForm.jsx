@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
@@ -11,7 +11,6 @@ function SignupForm() {
   const { register, formState, reset, handleSubmit, getValues } = useForm();
   const { errors } = formState;
   const { signup, isLoading } = useSignup();
-
   function onSubmit() {
     const { fullName, email, password } = getValues();
     signup({ fullName, email, password }, { onSettled: () => reset() });

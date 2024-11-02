@@ -32,7 +32,6 @@ const Guest = styled.div`
 function TodayItem({ activity }) {
   const navigate = useNavigate();
   const { id, numNights, status, guests } = activity;
-  console.log(activity);
   return (
     <StyledTodayItem>
       {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}
