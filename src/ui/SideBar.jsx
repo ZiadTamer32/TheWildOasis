@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
-
 const StyledSideBar = styled.aside`
   background-color: var(--color-grey-0);
   padding: 1.2rem 3.2rem;
