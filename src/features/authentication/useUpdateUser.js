@@ -3,14 +3,18 @@ import toast from "react-hot-toast";
 import { updateUserApi } from "../../services/apiAuth";
 
 export function useUpdateUser() {
-  const ReactQueryClient = useQueryClient();
+  const queryClient = useQueryClient();
+
   const { isLoading: isEditing, mutate: editUser } = useMutation({
     mutationFn: updateUserApi,
-    onSuccess: () => {
-      toast.success("User Successfully Updated");
-      ReactQueryClient.invalidateQueries({ queryKey: ["user"] });
+    onSuccess: (user) => {
+      toast.success("User successfully updated!");
+      queryClient.invalidateQueries(["user"], user);
     },
-    onError: (err) => toast.error(err.message)
+    onError: (err) => {
+      toast.error(err.message || "Failed to update user.");
+    }
   });
+
   return { isEditing, editUser };
 }
