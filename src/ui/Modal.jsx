@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
@@ -92,20 +91,5 @@ function Window({ name, children }) {
 
 Modal.Window = Window;
 Modal.Open = Open;
-
-// Define the expected prop types
-Modal.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-Open.propTypes = {
-  opens: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-};
-
-Window.propTypes = {
-  name: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-};
 
 export default Modal;

@@ -39,7 +39,7 @@ function App() {
                 </ProtectRoute>
               }
             >
-              <Route index element={<Navigate replace to="login" />} />
+              <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="account" element={<Account />} />
               <Route path="bookings" element={<Bookings />} />

@@ -8,7 +8,6 @@ import Button from "../../ui/Button";
 
 import { useCabinCreate } from "./apiCreate";
 import { useCabinEdit } from "./apiEdit";
-import PropTypes from "prop-types";
 
 const FormRow = styled.div`
   display: grid;
@@ -47,7 +46,7 @@ const Error = styled.span`
 `;
 
 function CreateCabinForm({ cabinToEdit = {}, setAddCabin }) {
-  const { id: editId, ...editValues } = cabinToEdit;
+  const { id: editId, image: editImage, ...editValues } = cabinToEdit;
   const isEdit = Boolean(editId);
 
   const { register, handleSubmit, getValues, reset, formState } = useForm({
@@ -59,7 +58,7 @@ function CreateCabinForm({ cabinToEdit = {}, setAddCabin }) {
   const { errors } = formState;
 
   function onSubmit(data) {
-    const image = typeof data.image === "string" ? data.image : data.image[0];
+    const image = data.image && data.image[0] ? data.image[0] : editImage;
 
     if (isEdit) {
       editCabin(
@@ -160,10 +159,15 @@ function CreateCabinForm({ cabinToEdit = {}, setAddCabin }) {
 
       <FormRow>
         <Label htmlFor="image">Cabin photo</Label>
+        {isEdit && editImage && (
+          <img src={editImage} alt="Current cabin" width="100" height="100" />
+        )}
         <FileInput
           id="image"
           accept="image/*"
-          {...register("image", { required: "This field is required" })}
+          {...register("image", {
+            required: !isEdit && "This field is required"
+          })}
         />
         {errors?.image?.message && <Error>{errors.image.message}</Error>}
       </FormRow>
@@ -179,17 +183,5 @@ function CreateCabinForm({ cabinToEdit = {}, setAddCabin }) {
     </Form>
   );
 }
-
-CreateCabinForm.propTypes = {
-  cabinToEdit: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    name: PropTypes.string,
-    maxCapacity: PropTypes.number,
-    regularPrice: PropTypes.number,
-    discount: PropTypes.number,
-    description: PropTypes.string,
-    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-  })
-};
 
 export default CreateCabinForm;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import PropTypes from "prop-types"; // Import PropTypes
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCabin } from "../../services/apiCabins";
 import toast from "react-hot-toast";
@@ -46,7 +45,6 @@ const Capacity = styled.div`
 `;
 
 function CabinRow({ cabin }) {
-  // const [showForm, setShowForm] = useState(false);
   const { createCabin } = useCabinCreate();
 
   const {
@@ -131,19 +129,6 @@ function CabinRow({ cabin }) {
     </>
   );
 }
-
-// Define PropTypes for validation
-CabinRow.propTypes = {
-  cabin: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    maxCapacity: PropTypes.number.isRequired,
-    regularPrice: PropTypes.number.isRequired,
-    discount: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
-  }).isRequired
-};
 
 export default CabinRow;
 

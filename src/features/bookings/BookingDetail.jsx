@@ -6,7 +6,6 @@ import Heading from "../../ui/Heading";
 import Tag from "../../ui/Tag";
 import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
-import ButtonText from "../../ui/ButtonText";
 import Spinner from "../../ui/Spinner";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useBooking from "./useBooking";
@@ -45,7 +44,6 @@ function BookingDetail() {
             {booking.status.replace("-", " ")}
           </Tag>
         </HeadingGroup>
-        <ButtonText onClick={moveBack}>&larr; back</ButtonText>
       </Row>
 
       <BookingDataBox booking={booking} />

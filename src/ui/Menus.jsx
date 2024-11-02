@@ -106,8 +106,7 @@ function Toggle({ id }) {
 
 // List Component
 function List({ id, children }) {
-  const { close } = useContext(MenusContext);
-  const { isOpen, position } = useContext(MenusContext);
+  const { close, position, isOpen } = useContext(MenusContext);
   const ref = useClickOutside(() => {
     close();
   }, false);

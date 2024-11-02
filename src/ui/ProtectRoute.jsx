@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
-
 import { useUser } from "../features/authentication/useUser";
 import Spinner from "../ui/Spinner";
 import { useEffect } from "react";
@@ -31,9 +29,5 @@ function ProtectRoute({ children }) {
 
   if (isAuthenticated) return children;
 }
-
-ProtectRoute.propTypes = {
-  children: PropTypes.node
-};
 
 export default ProtectRoute;
