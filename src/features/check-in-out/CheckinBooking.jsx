@@ -38,7 +38,6 @@ function CheckinBooking() {
 
   const optinalBreakFast =
     settings?.breakfastPrice * booking?.numGuests * booking?.numNights;
-  console.log(optinalBreakFast);
 
   function handleCheckin() {
     if (!isConfirmed) return;
@@ -49,8 +48,8 @@ function CheckinBooking() {
         breakFast: {
           hasBreakfast: true,
           extrasPrice: optinalBreakFast,
-          totalPrice: optinalBreakFast + booking.totalPrice
-        }
+          totalPrice: optinalBreakFast + booking.totalPrice,
+        },
       });
     } else {
       checkIn({ id: booking.id, breakFast: {} });

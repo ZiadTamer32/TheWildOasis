@@ -11,9 +11,10 @@ function useChecking() {
       updateBooking(id, { status: "checked-in", isPaid: true, ...breakFast }),
     onSuccess: (data) => {
       toast.success(`Booking #${data.id} is checked-in successfully`);
-      queryClient.invalidateQueries({ active: true }), navigate("/");
+      queryClient.invalidateQueries({ active: true });
+      navigate("/");
     },
-    onError: () => toast.error("There is an Error")
+    onError: () => toast.error("There is an Error"),
   });
   return { checkIn, isChecking };
 }

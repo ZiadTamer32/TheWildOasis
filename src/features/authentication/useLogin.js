@@ -9,10 +9,10 @@ function useLogin() {
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user?.user),
-        navigate("/dashboard", { replace: true });
+      queryClient.setQueryData(["user"], user?.user);
+      navigate("/dashboard", { replace: true });
     },
-    onError: () => toast.error("Check Your Email or Password")
+    onError: () => toast.error("Check Your Email or Password"),
   });
   return { login, isLoading };
 }

@@ -75,10 +75,6 @@ function Menus({ children }) {
   );
 }
 
-// Menus.propTypes = {
-//   children: PropTypes.node.isRequired
-// };
-
 // Toggle Component
 function Toggle({ id }) {
   const { isOpen, close, open, setPosition } = useContext(MenusContext);
@@ -88,7 +84,7 @@ function Toggle({ id }) {
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
-      y: rect.y + rect.height + 8
+      y: rect.y + rect.height + 8,
     });
     isOpen === "" || isOpen !== id ? open(id) : close();
   }
@@ -99,10 +95,6 @@ function Toggle({ id }) {
     </StyledToggle>
   );
 }
-
-// Toggle.propTypes = {
-//   id: PropTypes.string.isRequired
-// };
 
 // List Component
 function List({ id, children }) {
@@ -121,11 +113,6 @@ function List({ id, children }) {
   );
 }
 
-// List.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   children: PropTypes.node.isRequired
-// };
-
 // Button Component
 function Button({ children, icon, onClick }) {
   const { close } = useContext(MenusContext);
@@ -143,12 +130,6 @@ function Button({ children, icon, onClick }) {
     </li>
   );
 }
-
-// Button.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   icon: PropTypes.node, // Optional icon prop
-//   onClick: PropTypes.func // Optional onClick prop
-// };
 
 // Assign components to Menus
 Menus.Toggle = Toggle;
